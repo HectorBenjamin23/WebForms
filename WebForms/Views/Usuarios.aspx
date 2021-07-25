@@ -18,10 +18,17 @@
     </div>
     <div class="row">
         <div class="col s12 m4">
-            <asp:GridView runat="server" ID="gvUsers" AutoGenerateColumns="false">
+            <asp:GridView runat="server" ID="gvUsers" AutoGenerateColumns="false" AutoGenerateEditButton="true" OnRowCommand="gvUsers_RowCommand">
                 <Columns>
                     <asp:BoundField HeaderText="Usuario" DataField="Name" />
                     <asp:BoundField HeaderText="Rol" DataField="RoleName" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton runat="server" CommandName="Ovo" CommandArgument='<% #Eval("Uid") %>'>
+                                <i class="material-icons">delete</i>
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>

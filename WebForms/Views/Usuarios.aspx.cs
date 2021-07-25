@@ -43,5 +43,20 @@ namespace WebForms.Views
             gvUsers.DataSource = usuarios;
             gvUsers.DataBind();
         }
+
+        protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Edit")
+            {
+                txtName.Text = "No es Eliminar";
+            }
+            else if (e.CommandName == "Ovo")
+            {
+                string uid = e.CommandArgument.ToString();
+                var usuario = this.VmUser.ObtenerUsuario(Guid.Parse(uid));
+
+                txtName.Text = usuario.Name;
+            }
+        }
     }
 }
