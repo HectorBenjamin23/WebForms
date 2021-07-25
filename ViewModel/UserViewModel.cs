@@ -2,6 +2,7 @@
 using Data;
 using Model.Entities;
 using Model.Models;
+using Model.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +14,17 @@ namespace ViewModel
     public class UserViewModel
     {
         protected UserRepository UserDb { get; }
+        protected RoleRepository RoleDb { get; }
 
         public UserViewModel()
         {
             this.UserDb = new UserRepository();
+            this.RoleDb = new RoleRepository();
         }
 
-        public bool Agregar(string nombre, DateTime nacimiento)
+        public bool Agregar(string nombre, DateTime nacimiento, Guid roleUid)
         {
-            var id = this.UserDb.Insert(new User() { Name = nombre, Birthday = nacimiento });
+            var id = this.UserDb.Insert(new User() { Name = nombre, Birthday = nacimiento, UidRole = roleUid, CreatedDate = DateTime.Now });
 
             if (id == null)
                 return true;
@@ -40,7 +43,7 @@ namespace ViewModel
 select u.Uid,
        u.Name,
        u.UidRole,
-       r.RoleName
+       r.Name as RoleName
 from Users u
          inner join Rol r on r.Uid = u.UidRole";
 
@@ -48,6 +51,11 @@ from Users u
             parameters.Add("@name", nombre);
 
             return this.UserDb.Query<UsersGrid>(query, parameters);
+        }
+
+        public IEnumerable<BaseListBox> ObtenerRoles()
+        {
+            return this.RoleDb.Todos();
         }
     }
 }

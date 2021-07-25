@@ -50,6 +50,7 @@
     <Compile Include="Common\BaseDapperRepository.cs" />
     <Compile Include="Connections\DbConnections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleRepository.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup />

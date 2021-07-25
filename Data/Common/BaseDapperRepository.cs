@@ -26,6 +26,7 @@ namespace Data.Common
 
         public BaseDapperRepository(string dbConnection)
         {
+            this._connectionString = dbConnection;
             this.Connection = new SqlConnection(dbConnection);
         }
 

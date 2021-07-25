@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model.Entities
 {
+    [Table("Users")]
     public class User 
     {
         [Key]
@@ -16,9 +17,9 @@ namespace Model.Entities
         public Guid UidRole { get; set; }
 
         public string Name { get; set; }
-
+                
         public DateTime Birthday { get; set; }
-
+                
         public DateTime CreatedDate { get; set; }
     }
 }

@@ -9,6 +9,6 @@ namespace Model.Models.Common
     public class BaseListBox
     {
         public Guid Uid { get; set; }
-        public Guid Name { get; set; }
+        public string Name { get; set; }
     }
 }

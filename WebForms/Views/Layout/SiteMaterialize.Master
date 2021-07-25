@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMaterialize.master.cs" Inherits="WebForms.Views.Layout.SiteMaterialize" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+
+    <title></title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <asp:ContentPlaceHolder ID="phStyles" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server" ID="smGeneral"></asp:ScriptManager>
+
+        <%--NAV--%>
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <asp:LinkButton runat="server" Text="Roles" PostBackUrl="~/Views/Roles.aspx"></asp:LinkButton>
+                    </li>
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav">
+                    <li>
+                        <asp:LinkButton runat="server" Text="Usuarios" PostBackUrl="~/Views/Usuarios.aspx"></asp:LinkButton>
+                    </li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <%--NAV--%>
+
+        <%--CONTENT--%>
+        <asp:UpdatePanel runat="server" ID="upBody">
+            <ContentTemplate>
+                <div class="container">
+                    <div class="section">
+                        <asp:ContentPlaceHolder ID="phBody" runat="server"></asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <%--CONTENT--%>
+
+        <!-- JAVASCRIPT  -->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <asp:ContentPlaceHolder ID="phScripts" runat="server"></asp:ContentPlaceHolder>
+        <script>
+            (function ($) {
+                $(function () {
+                    $('.sidenav').sidenav();
+                    $('input#input_text, textarea#textarea2').characterCounter();
+                    $('select').formSelect();
+                }); // end of document ready
+            })(jQuery); // end of jQuery name space
+        </script>
+    </form>
+</body>
+</html>
