@@ -155,6 +155,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Home.aspx" />
     <Content Include="Views\Roles.aspx" />
     <Content Include="Views\Usuarios.aspx" />
     <Content Include="Web.config" />
@@ -210,6 +211,20 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Layout\SiteBootstrap.Master.cs">
+      <DependentUpon>SiteBootstrap.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Layout\SiteBootstrap.Master.designer.cs">
+      <DependentUpon>SiteBootstrap.Master</DependentUpon>
+    </Compile>
     <Compile Include="Views\Layout\SiteMaterialize.Master.cs">
       <DependentUpon>SiteMaterialize.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,6 +255,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Layout\SiteMaterialize.Master" />
+    <Content Include="Views\Layout\SiteBootstrap.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
