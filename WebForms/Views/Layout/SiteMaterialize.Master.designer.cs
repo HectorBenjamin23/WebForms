@@ -42,15 +42,6 @@ namespace WebForms.Views.Layout
         protected global::System.Web.UI.ScriptManager smGeneral;
 
         /// <summary>
-        /// upBody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upBody;
-
-        /// <summary>
         /// phBody control.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,15 @@ namespace WebForms.Views.Layout
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder phBody;
+
+        /// <summary>
+        /// sModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder sModal;
 
         /// <summary>
         /// phScripts control.

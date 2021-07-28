@@ -1,54 +1,58 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Layout/SiteMaterialize.Master" AutoEventWireup="true" CodeBehind="Roles.aspx.cs" Inherits="WebForms.Views.Roles" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="phBody" runat="server">
+
     <h1 class="header center orange-text">Starter Template</h1>
     <div class="row center">
         <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
     </div>
     <div class="row center">
-        <asp:LinkButton runat="server" CssClass="btn-large waves-effect waves-light orange" Text="Postback"></asp:LinkButton>
+        <asp:LinkButton runat="server" ID="btnModal" OnClick="btnModal_Click" CssClass="btn-large waves-effect waves-light orange" Text="Modal"></asp:LinkButton>
     </div>
 
-    <div class="row">
-        <form class="col s12">
-            <div class="row">
-                <div class="input-field col s6">
-                    <label>First Name</label>
-                    <asp:TextBox runat="server" CssClass="validate" />
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="sModal" runat="server">
+
+    <%--MODAL--%>
+    <div id="mdlUserForm" class="modal">
+        <%--UPDATE PANEL--%>
+        <asp:UpdatePanel runat="server" ID="upUserForm">
+            <ContentTemplate>
+                <%--CONTENT--%>
+                <div class="modal-content">
+                    <h4>User Form</h4>
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <label class="active">First Name</label>
+                                <asp:TextBox runat="server" ID="txtFirstName"></asp:TextBox>
+                            </div>
+                            <div class="input-field col s6">
+                                <label class="active">Last Name</label>
+                                <asp:TextBox runat="server" ID="txtLastName"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Last Name</label>
+                <div class="modal-footer">
+                    <asp:LinkButton Text="Agree" runat="server" ID="btnUserFormSave" OnClick="btnUserFormSave_Click" CssClass="waves-effect waves-green btn-flat" />
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                    <label for="disabled">Disabled</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    This is an inline input field:
-          <div class="input-field inline">
-              <input id="email_inline" type="email" class="validate">
-              <label for="email_inline">Email</label>
-              <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-          </div>
-                </div>
-            </div>
-        </form>
+                <%--CONTENT--%>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <%--UPDATE PANEL--%>
     </div>
+    <%--MODAL--%>
+</asp:Content>
+
+<asp:Content runat="server" ID="Content4" ContentPlaceHolderID="phScripts">
+    <script>
+        function showClientModal() {
+            $('#mdlUserForm').modal('open');
+        }
+        function hideClientModal() {
+            $('#mdlUserForm').modal('close');
+        }
+    </script>
 </asp:Content>

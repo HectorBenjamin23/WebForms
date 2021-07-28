@@ -39,7 +39,7 @@
         <%--NAV--%>
 
         <%--CONTENT--%>
-        <asp:UpdatePanel runat="server" ID="upBody">
+        <asp:UpdatePanel runat="server">
             <ContentTemplate>
                 <div class="container">
                     <div class="section">
@@ -50,19 +50,24 @@
         </asp:UpdatePanel>
         <%--CONTENT--%>
 
+        <%--MODAL--%>
+        <asp:ContentPlaceHolder ID="sModal" runat="server"></asp:ContentPlaceHolder>
+        <%--MODAL--%>
+
         <!-- JAVASCRIPT  -->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <asp:ContentPlaceHolder ID="phScripts" runat="server"></asp:ContentPlaceHolder>
         <script>
             (function ($) {
                 $(function () {
                     $('.sidenav').sidenav();
                     $('input#input_text, textarea#textarea2').characterCounter();
                     $('select').formSelect();
+                    $('.modal').modal();
                 }); // end of document ready
             })(jQuery); // end of jQuery name space
         </script>
+        <asp:ContentPlaceHolder ID="phScripts" runat="server"></asp:ContentPlaceHolder>
     </form>
 </body>
 </html>
